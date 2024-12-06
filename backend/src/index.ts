@@ -4,12 +4,13 @@ import morgan from 'morgan'
 import helmet from 'helmet'
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
+import DashboardRoutes from './Routes/DashboardRoutes'
 
 
 /*configuration*/
 dotenv.config(); // souvent avant express
 const app = express(); //!
-app.use(cors());
+app.use(cors({origin:"http://localhost:3000"}));
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
@@ -21,14 +22,12 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 /*routes*/
 
-app.get('/hello', (req,res) => {
-    res.send('hello next')
-})
+app.use('/dashboard',DashboardRoutes)
 
 /*server*/
 
 
-const port = Number(process.env.PORT) || 3001;
+const port = 8000;
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server running on port ${port}`);
 });

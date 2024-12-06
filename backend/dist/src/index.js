@@ -9,10 +9,11 @@ const morgan_1 = __importDefault(require("morgan"));
 const helmet_1 = __importDefault(require("helmet"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const DashboardRoutes_1 = __importDefault(require("./Routes/DashboardRoutes"));
 /*configuration*/
 dotenv_1.default.config(); // souvent avant express
 const app = (0, express_1.default)(); //!
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({ origin: "http://localhost:3000" }));
 app.use(express_1.default.json());
 app.use((0, helmet_1.default)());
 app.use((0, morgan_1.default)("common"));
@@ -20,11 +21,9 @@ app.use(helmet_1.default.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 /*routes*/
-app.get('/hello', (req, res) => {
-    res.send('hello next');
-});
+app.use('/dashboard', DashboardRoutes_1.default);
 /*server*/
-const port = Number(process.env.PORT) || 3001;
+const port = 8000;
 app.listen(port, "0.0.0.0", () => {
     console.log(`Server running on port ${port}`);
 });
