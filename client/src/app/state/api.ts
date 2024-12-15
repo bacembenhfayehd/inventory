@@ -46,17 +46,17 @@ export interface DashboardMetrics {
 // Configuration RTK Query
 export const dashboardApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8000", // Utiliser l'URL d'environnement
+    baseUrl: "http://localhost:8000", 
   }),
   reducerPath: "dashboardApi",
-  tagTypes: ["DashboardMetrics"], // Identifier les balises pour l'invalidation
+  tagTypes: ["DashboardMetrics"], 
   endpoints: (build) => ({
     getDashboardMetrics: build.query<DashboardMetrics, void>({
-      query: () => "/dashboard", // Endpoint backend
-      providesTags: ["DashboardMetrics"], // Fournir les balises pour le cache
+      query: () => "/dashboard", 
+      providesTags: ["DashboardMetrics"], 
     }),
   }),
 });
 
-// Exporter le hook généré
+
 export const { useGetDashboardMetricsQuery } = dashboardApi;
