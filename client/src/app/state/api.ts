@@ -8,6 +8,13 @@ export interface Product {
   stockQuantity: number;
 }
 
+export interface newProduct{
+  name: string;
+  price: number;
+  rating?: number;
+  stockQuantity: number;
+}
+
 export interface SalesSummary {
   salesSummaryId: string;
   totalValue: number;
@@ -49,14 +56,31 @@ export const dashboardApi = createApi({
     baseUrl: "http://localhost:8000", 
   }),
   reducerPath: "dashboardApi",
-  tagTypes: ["DashboardMetrics"], 
+  tagTypes: ["DashboardMetrics","Products"], 
   endpoints: (build) => ({
     getDashboardMetrics: build.query<DashboardMetrics, void>({
       query: () => "/dashboard", 
       providesTags: ["DashboardMetrics"], 
     }),
+
+    getProducts:build.query<Product[], string | undefined>({ // search rslt migh be string | undefined (not void)
+      query:(search) => ({
+        url:"/products",
+        params: search ? {search} : undefined
+      }),
+      providesTags:["Products"]
+    }),
+
+    createProduct: build.mutation<Product, newProduct>({
+      query:(newProduct) => ({
+        body:newProduct,
+        method:"POST",
+        url:"/products"
+      }),
+      invalidatesTags:["Products"]
+    })
   }),
 });
 
 
-export const { useGetDashboardMetricsQuery } = dashboardApi;
+export const { useGetDashboardMetricsQuery ,useGetProductsQuery,useCreateProductMutation } = dashboardApi;
