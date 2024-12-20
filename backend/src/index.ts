@@ -5,6 +5,7 @@ import helmet from 'helmet'
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import DashboardRoutes from './Routes/DashboardRoutes'
+import ProductRoutes from './Routes/ProductRoutes'
 
 
 /*configuration*/
@@ -22,7 +23,8 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 /*routes*/
 
-app.use('/dashboard',DashboardRoutes)
+app.use('/dashboard',DashboardRoutes);
+app.use('/products',ProductRoutes);
 
 /*server*/
 

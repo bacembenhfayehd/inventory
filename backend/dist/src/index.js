@@ -10,6 +10,7 @@ const helmet_1 = __importDefault(require("helmet"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const DashboardRoutes_1 = __importDefault(require("./Routes/DashboardRoutes"));
+const ProductRoutes_1 = __importDefault(require("./Routes/ProductRoutes"));
 /*configuration*/
 dotenv_1.default.config(); // souvent avant express
 const app = (0, express_1.default)(); //!
@@ -22,6 +23,7 @@ app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 /*routes*/
 app.use('/dashboard', DashboardRoutes_1.default);
+app.use('/products', ProductRoutes_1.default);
 /*server*/
 const port = 8000;
 app.listen(port, "0.0.0.0", () => {
