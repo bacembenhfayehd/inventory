@@ -4,7 +4,7 @@ import { useGetProductsQuery ,useCreateProductMutation } from "../state/api";
 import { useState } from "react";
 import Header from "../(components)/Header";
 import Rating from "../(components)/Rating";
-import Image from "next/image";
+
 import ProductModal from "./ProductModal";
 
 
@@ -72,10 +72,7 @@ const Products = () => {
             products?.map((product) => (
                 <div key={product.productId} className="border shadow rounded-md p-4 max-w-full w-full mx-auto">
                     <div>
-                    <Image width={150}
-                  height={150}
-                  className="mb-3 rounded-2xl w-36 h-36" alt={product.name}/>
-
+                    <img src=""   height={150}className="mb-3 rounded-2xl w-36 h-36" alt={product.name} />
                     </div>
                     <h3>{product.name}</h3>
                     <p>Stock:{product.stockQuantity}</p>
