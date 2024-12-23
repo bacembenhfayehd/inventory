@@ -63,7 +63,7 @@ export const dashboardApi = createApi({
     baseUrl: "http://localhost:8000", 
   }),
   reducerPath: "dashboardApi",
-  tagTypes: ["DashboardMetrics","Products","Users"], 
+  tagTypes: ["DashboardMetrics","Products","Users","Expenses"], 
   endpoints: (build) => ({
     getDashboardMetrics: build.query<DashboardMetrics, void>({
       query: () => "/dashboard", 
@@ -91,8 +91,12 @@ export const dashboardApi = createApi({
       query: () => "/users",
       providesTags: ["Users"],
     }),
+    getExpenses: build.query<ExpenseByCategorySummary[], void>({
+      query: () => "/expenses",
+      providesTags: ["Expenses"],
+    }),
   }),
 });
 
 
-export const { useGetDashboardMetricsQuery ,useGetProductsQuery,useCreateProductMutation,useGetUsersQuery } = dashboardApi;
+export const { useGetDashboardMetricsQuery ,useGetProductsQuery,useCreateProductMutation,useGetUsersQuery,useGetExpensesQuery } = dashboardApi;
