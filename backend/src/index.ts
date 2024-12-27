@@ -6,6 +6,8 @@ import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import DashboardRoutes from './Routes/DashboardRoutes'
 import ProductRoutes from './Routes/ProductRoutes'
+import UserRoutes from './Routes/UserRoutes'
+import ExpensesRoutes from './Routes/ExpensesRoutes'
 
 
 /*configuration*/
@@ -25,6 +27,8 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 app.use('/dashboard',DashboardRoutes);
 app.use('/products',ProductRoutes);
+app.use('/users',UserRoutes);
+app.use('/expenses',ExpensesRoutes)
 
 /*server*/
 

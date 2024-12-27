@@ -2,9 +2,12 @@
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/app/state";
 import { Archive, Circle, CircleDollarSign, ClipboardCheck, Icon, Layout, LucideIcon, Menu, SlidersHorizontal, User } from "lucide-react";
+import Image from "next/image";
+import logo from '../../assets/main logo.png'
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+
 
 
 interface sidebarLinksProps {
@@ -23,8 +26,8 @@ interface sidebarLinksProps {
       <div className={`cursor-pointer flex items-center ${
         isCollapsed ? "justify-center py-4" : "justify-start px-8 py-4"
       }   
-      hover-text-blue-500 hover:bg-blue-100 gap-3 transition-colors ${
-        isActive ? "bg-blue-200" : ""}`}>
+      hover-text-green-500 hover:bg-green-100 gap-3 transition-colors ${
+        isActive ? "bg-green-200" : ""}`}>
 
         <Icon className="w-6 h-6 !text-gray-700"/>
         <span className={` ${isCollapsed ? "hidden" : "block"} font-medium text-gray-700`}>{label}</span>
@@ -50,9 +53,11 @@ const Sidebar = () => {
     <div className={sideBarClassnames}>
         {/* header */}
       <div className={`flex gap-3 justify-between md:justify-normal items-center pt-8 ${isSideBarisCollapsed ? "px-5" : "px-8"}`}>
-        <div>Logo</div>
+        <div>
+          logo{/*<Image src={logo} alt="Logo principal" width={200} height={100}/>*/}
+        </div>
         <h1 className={` ${isSideBarisCollapsed ? "hidden" : "block"} font-extrabold text-2xl`}>HexaGrow</h1>
-        <button onClick={toggleSidebar} className="md:hidden px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100">
+        <button onClick={toggleSidebar} className="md:hidden px-3 py-3 bg-gray-100 rounded-full hover:bg-green-100">
         <Menu className="w-4 h-4"/>
         </button>
       </div>

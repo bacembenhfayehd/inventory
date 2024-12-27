@@ -123,7 +123,7 @@ const CardSalesSummary = () => {
                 />
                 <Bar
                   dataKey="totalValue"
-                  fill="#3182ce"
+                  fill="green"
                   barSize={10}
                   radius={[10, 10, 0, 0]}
                 />

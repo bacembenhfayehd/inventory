@@ -2,6 +2,8 @@
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsDarkMode, setIsSidebarCollapsed } from "@/app/state";
 import { Bell, Menu, Moon, Settings, Sun } from "lucide-react";
+import Image from "next/image";
+import logo from '../../assets/avatar11.jpg'
 import Link from "next/link";
 import React from "react";
 
@@ -19,7 +21,7 @@ const Navbar = () => {
   return <div className="flex justify-between items-center w-full mb-7">
     {/*left side */}
     <div className="flex justify-between items-center gap-5 ">
-        <button onClick={toggleSidebar} className="rounded-full px-3 py-3 bg-gray-100 hover:bg-blue-100">
+        <button onClick={toggleSidebar} className="rounded-full px-3 py-3 bg-gray-100 hover:bg-green-100">
 
             <Menu className="w-4 h-4"/>
         </button>
@@ -49,7 +51,7 @@ const Navbar = () => {
         </div>
         <hr className="w-0 h-7 border border-solid border-l border-gray-300 mx-3" />
         <div className="flex items-center gap-3 cursor-pointer">
-            <div className="h-9 w-9">image</div>
+            <div className="h-9 w-9"><Image className="rounded-full " src={logo} alt="logo"/></div>
             <span className="font-semibold">Bacem</span>
 
         </div>

@@ -85,8 +85,8 @@ const CardPurchaseSummary = () => {
                 <Area
                   type="linear"
                   dataKey="totalPurchased"
-                  stroke="#8884d8"
-                  fill="#8884d8"
+                  stroke="rgba(0, 128, 0, 0.7)"
+                  fill="rgba(0, 128, 0, 0.7)"
                   dot={true}
                 />
               </AreaChart>
